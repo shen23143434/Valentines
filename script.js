@@ -50,11 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
         noBtn.style.position = 'absolute';
         noBtn.style.left = `${newX}px`;
         noBtn.style.top = `${newY}px`;
-
-        if (noSound) {
-            noSound.currentTime = 0; // Rewind to the start
-            noSound.play();
-        }
     });
 
     noBtn.addEventListener('click', () => {

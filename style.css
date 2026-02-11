@@ -1,0 +1,172 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #fce4ec; /* Light pink background */
+    overflow: hidden; /* Hide overflow for animations */
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out;
+}
+
+h1 {
+    color: #e91e63; /* Deep pink */
+    font-size: 3em;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+#yes-btn {
+    background-color: #4CAF50; /* Green for Yes */
+    color: white;
+}
+
+#yes-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+#no-btn {
+    background-color: #f44336; /* Red for No */
+    color: white;
+    position: relative; /* For JS movement */
+}
+
+#no-btn:hover {
+    background-color: #da190b;
+    transform: scale(1.05);
+}
+
+#message {
+    margin-top: 30px;
+    font-size: 1.8em;
+    color: #e91e63;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hearts {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; }
+}
+
+.heart {
+    position: absolute;
+    background-color: #ff69b4; /* Hot pink */
+    transform: rotate(-45deg);
+    width: 20px;
+    height: 20px;
+    animation: hearts 5s linear forwards;
+    pointer-events: none; /* Allow clicks to pass through */
+    z-index: -1;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff69b4;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    left: 10px;
+    top: 0;
+}
+
+.gif {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px;
+        margin: 20px;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    .btn {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+
+    #message {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn {
+        width: 80%; /* Make buttons take more width */
+        margin: 0 auto; /* Center buttons */
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    #message {
+        font-size: 1.2em;
+    }
+}
